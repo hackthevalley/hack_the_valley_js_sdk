@@ -2,6 +2,7 @@ const HackTheValleyApolloAdaptor = require('./adaptors/HackTheValleyApolloAdapto
 
 // Controllers
 const GraphController = require('./controllers/GraphController');
+const HackerController = require('./controllers/HackerController');
 
 class App {
     /**
@@ -18,11 +19,17 @@ class App {
 
         // Initialize controllers
         this._graphController = new GraphController(this);
+        this._hackerController = new HackerController(this);
 
         // Expose routes
         this.Graph = {
             query: this._graphController.query
-        }
+        };
+
+        this.Hacker = {
+            create: this._hackerController.create,
+            createToken: this._hackerController.createToken
+        };
     }
 
     /**
