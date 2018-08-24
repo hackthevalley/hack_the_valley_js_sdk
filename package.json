@@ -1,5 +1,5 @@
 {
-  "name": "hack_the_valley_js_sdk",
+  "name": "htv-sdk",
   "version": "1.0.0",
   "description": "Hack the Valley JavaScript SDK",
   "main": "index.js",
