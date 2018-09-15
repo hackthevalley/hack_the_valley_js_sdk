@@ -8,8 +8,8 @@ const SynchronousLink = require('./SynchronousLink');
 
 // apollo-client stuff
 const ApolloClient = require('apollo-client').default;
-const ApolloInMemoryCache = require('apollo-cache-inmemory').InMemoryCache;
-const ApolloHttpLink = require('apollo-link-http').HttpLink;
+const { InMemoryCache: ApolloInMemoryCache } = require('apollo-cache-inmemory/lib/inMemoryCache');
+const { HttpLink: ApolloHttpLink } = require('apollo-link-http/lib/httpLink');
 const gql = require('graphql-tag');
 const ApolloLinkContext = require('apollo-link-context');
 
