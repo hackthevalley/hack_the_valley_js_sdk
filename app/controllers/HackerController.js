@@ -42,7 +42,7 @@ class HackerController {
             let mutationString = `
                 mutation createHackerToken ($email_address: String!, $password: String!, $expire_after: Int) {
                     createHackerToken(email_address: $email_address, password: $password, expire_after: $expire_after) {
-                        _id
+                        token_body
                     }
                 }
             `;

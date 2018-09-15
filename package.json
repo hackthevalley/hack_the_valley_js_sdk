@@ -1,6 +1,6 @@
 {
   "name": "htv-sdk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Hack the Valley JavaScript SDK",
   "main": "lib/index.js",
   "scripts": {
