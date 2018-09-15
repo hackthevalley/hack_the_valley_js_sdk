@@ -12,5 +12,5 @@ module.exports = app;
 
 // For browsers
 if(typeof window !== "undefined"){
-    window.CE = app
+    window.HTV = app
 }
