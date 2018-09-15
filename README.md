@@ -6,7 +6,7 @@ Interested in building with Hack the Valley API? Download our JS SDK to get star
 $ npm install htv-sdk --save
 ```
 
-Once you have installed the SDK, import it using one of the following:
+Once you have installed the SDK, import it use one of the following:
 
 ```js
 import HTV from 'htv-sdk';
