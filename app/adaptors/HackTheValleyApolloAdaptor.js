@@ -16,7 +16,7 @@ class HackTheValleyApolloAdaptor extends Adaptor {
     setAuthenticationToken(token){
         this._apolloLink = new ApolloLink(this._config.apolloEndpoint, {
             headers: {
-                authorization: token
+                authorization: "Bearer " + token
             }
         });
     }

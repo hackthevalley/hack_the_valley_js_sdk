@@ -9,6 +9,8 @@ class App {
      * Construct the App instance
      */
     constructor() {
+        this._token = null;
+
         this.config = {
             endpoints: require('../config/endpoints')
         };
@@ -46,6 +48,23 @@ class App {
      */
     getAdaptor() {
         return this._adaptor;
+    }
+
+    /**
+     * Set authentication token to passed to server
+     * @param token
+     */
+    setAuthenticationToken(token) {
+        this._token = token;
+        this._adaptor.setAuthenticationToken(token);
+    }
+
+    /**
+     * Get current authentication token
+     * @returns {null|string}
+     */
+    getAuthenticationToken() {
+        return this._token;
     }
 }
 
