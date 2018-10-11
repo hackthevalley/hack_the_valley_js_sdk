@@ -30,6 +30,7 @@ class App {
 
         this.Hacker = {
             create: this._hackerController.create,
+            update: this._hackerController.update,
             createToken: this._hackerController.createToken
         };
     }

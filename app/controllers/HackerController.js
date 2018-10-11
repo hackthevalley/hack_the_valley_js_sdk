@@ -2,6 +2,7 @@ class HackerController {
     constructor(app){
         this.app = app;
         this.create = this.create.bind(this);
+        this.update = this.update.bind(this);
         this.createToken = this.createToken.bind(this);
     }
 
@@ -50,6 +51,31 @@ class HackerController {
                 email_address, password, expire_after
             }).then(result => {
                 resolve(result.createHackerToken.token_body);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Update an existing hacker
+     * @param id
+     * @param hacker
+     * @returns {Promise<any>}
+     */
+    update(id, hacker) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation updateHacker ($id: String!, $hacker: UpdateHackerInput!) {
+                    updateHacker(id: $id, hacker: $hacker) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, hacker
+            }).then(result => {
+                resolve(result.updateHacker._id);
             }).catch(e => {
                 reject(e);
             });
