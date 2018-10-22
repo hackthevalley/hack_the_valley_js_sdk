@@ -38,7 +38,8 @@ class App {
 
         this.HackerApplication = {
             create: this._hackerApplicationController.create,
-            updateQuestion: this._hackerApplicationController.updateQuestion
+            updateQuestion: this._hackerApplicationController.updateQuestion,
+            submit: this._hackerApplicationController.submit
         };
     }
 

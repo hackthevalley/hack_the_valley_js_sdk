@@ -3,6 +3,7 @@ class HackerApplicationController {
         this.app = app;
         this.create = this.create.bind(this);
         this.updateQuestion = this.updateQuestion.bind(this);
+        this.submit = this.submit.bind(this);
     }
 
     /**
@@ -53,6 +54,30 @@ class HackerApplicationController {
                 reject(e);
             });
         });
+    }
+
+    /**
+     * Mark an application as submitted
+     * @param hacker_application_id
+     * @returns {Promise<any>}
+     */
+    submit(hacker_application_id) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation submitHackerApplication($hacker_application_id: String!) {
+                    submitHackerApplication(hacker_application_id: $hacker_application_id) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                hacker_application_id
+            }).then(result => {
+                resolve(result.submitHackerApplication._id)
+            }).catch(e => {
+                reject(e);
+            })
+        })
     }
 }
 
