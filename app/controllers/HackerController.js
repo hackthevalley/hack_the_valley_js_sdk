@@ -82,6 +82,30 @@ class HackerController {
         });
     }
 
+    sendPasswordResetEmail = async (email_address) => {
+        let result = await this.app.getAdaptor().mutate(`
+            mutation sendHackerPasswordResetEmail ($email_address: String!) {
+                sendHackerPasswordResetEmail(email_address: $email_address)
+            }
+        `, {
+            email_address
+        });
+        return result.sendHackerPasswordResetEmail;
+    };
+
+    resetPassword = async (email_address, code, new_password) => {
+        let result = await this.app.getAdaptor().mutate(`
+            mutation resetHackerPassword ($email_address: String!, $code: String!, $new_password: String!) {
+                resetHackerPassword (email_address: $email_address, code: $code, new_password: $new_password) {
+                    _id
+                }
+            }
+        `, {
+            email_address, code, new_password
+        });
+        return result.resetHackerPassword._id;
+    }
+
 }
 
 module.exports = HackerController;

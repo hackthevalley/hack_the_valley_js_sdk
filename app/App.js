@@ -1,8 +1,9 @@
 const HackTheValleyApolloAdaptor = require('./adaptors/HackTheValleyApolloAdaptor');
 
 // Controllers
-const GraphController = require('./controllers/GraphController');
-const HackerController = require('./controllers/HackerController');
+const GraphController             = require('./controllers/GraphController');
+const HackerController            = require('./controllers/HackerController');
+const UserController              = require('./controllers/UserController');
 const HackerApplicationController = require('./controllers/HackerApplicationController');
 
 class App {
@@ -21,9 +22,10 @@ class App {
         });
 
         // Initialize controllers
-        this._graphController = new GraphController(this);
-        this._hackerController = new HackerController(this);
+        this._graphController             = new GraphController(this);
+        this._hackerController            = new HackerController(this);
         this._hackerApplicationController = new HackerApplicationController(this);
+        this._userController              = new UserController(this);
 
         // Expose routes
         this.Graph = {
@@ -33,7 +35,9 @@ class App {
         this.Hacker = {
             create: this._hackerController.create,
             update: this._hackerController.update,
-            createToken: this._hackerController.createToken
+            createToken: this._hackerController.createToken,
+            sendPasswordResetEmail: this._hackerController.sendPasswordResetEmail,
+            resetPassword: this._hackerController.resetPassword
         };
 
         this.HackerApplication = {
@@ -41,6 +45,10 @@ class App {
             updateQuestion: this._hackerApplicationController.updateQuestion,
             submit: this._hackerApplicationController.submit
         };
+
+        this.User = {
+            createToken: this._userController.createToken
+        }
     }
 
     /**
