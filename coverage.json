@@ -1,0 +1,120 @@
+{
+  "coverage": "66.17%",
+  "expectCount": 68,
+  "actualCount": 45,
+  "files": {
+    "app/App.js": {
+      "expectCount": 15,
+      "actualCount": 10,
+      "undocumentLines": [
+        7,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "app/adaptors/Adaptor.js": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "app/adaptors/HackTheValleyGraphQLAdaptor.js": {
+      "expectCount": 7,
+      "actualCount": 6,
+      "undocumentLines": [
+        12
+      ]
+    },
+    "app/controllers/GraphController.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        10
+      ]
+    },
+    "app/controllers/HackerApplicationController.js": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "app/controllers/HackerController.js": {
+      "expectCount": 6,
+      "actualCount": 5,
+      "undocumentLines": [
+        5
+      ]
+    },
+    "app/controllers/UserController.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "app/links/Link.js": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "app/links/synchronouslinks/GraphQLLink.js": {
+      "expectCount": 6,
+      "actualCount": 5,
+      "undocumentLines": [
+        14
+      ]
+    },
+    "app/links/synchronouslinks/HttpLink.js": {
+      "expectCount": 7,
+      "actualCount": 6,
+      "undocumentLines": [
+        11
+      ]
+    },
+    "app/links/synchronouslinks/SynchronousLink.js": {
+      "expectCount": 3,
+      "actualCount": 2,
+      "undocumentLines": [
+        10
+      ]
+    },
+    "app/routes/Graph.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        7
+      ]
+    },
+    "app/routes/Hacker.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        7
+      ]
+    },
+    "app/routes/HackerApplication.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        7
+      ]
+    },
+    "app/routes/User.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        7
+      ]
+    }
+  }
+}
