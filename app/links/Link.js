@@ -1,10 +1,4 @@
 // @flow
-/**
- * Class representing a network link
- * Author: Jun Zheng
- * License: MIT
- */
-
 export default class Link {
 
     url: ?string = null;
@@ -16,7 +10,6 @@ export default class Link {
     constructor(url: string) {
         this.url = url;
     }
-
 
     /**
      * Run a request

@@ -1,0 +1,15 @@
+{
+  "source": "./app",
+  "destination": "./docs",
+  "excludes": ["node_modules", "lib", "doc", "flow-typed"],
+  "unexportIdentifier": true,
+  "plugins": [
+    {"name": "esdoc-standard-plugin", "option":  {
+      "coverage": {
+        "enable": true
+      }
+    }},
+    {"name": "esdoc-flow-type-plugin", "option": {"enable": true}},
+    {"name": "esdoc-node"}
+  ]
+}

@@ -1,10 +1,4 @@
 // @flow
-/**
- * Class representing a simple Apollo server link
- * Author: Jun Zheng
- * License: MIT
- */
-
 import SynchronousLink from "./SynchronousLink";
 import {GraphQLClient} from "graphql-request";
 

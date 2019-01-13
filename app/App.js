@@ -7,7 +7,10 @@ import HackTheValleyGraphQLAdaptor              from "./adaptors/HackTheValleyGr
 
 let instance = null;
 
-export default class App {
+/**
+ * Main entry point
+ */
+class App {
 
     Graph             = Graph;
     Hacker            = Hacker;
@@ -69,3 +72,5 @@ export default class App {
         return instance;
     }
 }
+
+export default App;
