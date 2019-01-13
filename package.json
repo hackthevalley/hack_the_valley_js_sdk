@@ -1,6 +1,6 @@
 {
   "name": "@hackthevalley/sdk",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Hack the Valley JavaScript SDK",
   "main": "lib/index.js",
   "scripts": {
