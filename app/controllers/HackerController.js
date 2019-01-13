@@ -6,7 +6,7 @@ export default class HackerController {
     /**
      * Create a new hacker, return hacker ID if successful.
      */
-    create = async (emailAddress: string, password: string) => {
+    async create(emailAddress: string, password: string): Promise<string> {
         return await (App.getInstance().getAdaptor().mutate(`
             mutation ($emailAddress: String!, $password: String!) {
                 createHacker(email_address: $email_address, password: $password) {
@@ -21,7 +21,7 @@ export default class HackerController {
     /**
      * Create a new hacker token.
      */
-    createToken = async (emailAddress: string, password: string, expireAfter: number = 86400) => {
+    async createToken(emailAddress: string, password: string, expireAfter: number = 86400): Promise<string> {
         return (await App.getInstance().getAdaptor().mutate(`
             mutation ($emailAddress: String!, $password: String!, $expireAfter: Int) {
                 createHackerToken(email_address: $emailAddress, password: $password, expire_after: $expireAfter) {
@@ -36,7 +36,7 @@ export default class HackerController {
     /**
      * Update an existing hacker.
      */
-    update = async (id: string, hacker: UpdateHackerInput) => {
+    async update(id: string, hacker: UpdateHackerInput): Promise<string> {
         return (await App.getInstance().getAdaptor().mutate(`
             mutation ($id: String!, $hacker: UpdateHackerInput!) {
                 updateHacker(id: $id, hacker: $hacker) {
@@ -51,7 +51,7 @@ export default class HackerController {
     /**
      * Send password reset email to hacker.
      */
-    sendPasswordResetEmail = async (emailAddress: string) => {
+    async sendPasswordResetEmail(emailAddress: string): Promise<string> {
         return (await App.getInstance().getAdaptor().mutate(`
             mutation sendHackerPasswordResetEmail ($emailAddress: String!) {
                 sendHackerPasswordResetEmail(email_address: $emailAddress)
@@ -64,7 +64,7 @@ export default class HackerController {
     /**
      * Reset hacker's password using reset code.
      */
-    resetPassword = async (emailAddress: string, code: string, newPassword: string) => {
+    async resetPassword(emailAddress: string, code: string, newPassword: string): Promise<string> {
         return (await App.getInstance().getAdaptor().mutate(`
             mutation ($emailAddress: String!, $code: String!, $newPassword: String!) {
                 resetHackerPassword (email_address: $emailAddress, code: $code, new_password: $newPassword) {

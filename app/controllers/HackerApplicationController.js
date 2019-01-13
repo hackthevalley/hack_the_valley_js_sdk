@@ -5,7 +5,7 @@ export default class HackerApplicationController {
     /**
      * Create a new hacker hacker application, return hacker application ID if successful
      */
-    create = async (applicationID: string) => {
+    async create(applicationID: string): Promise<string> {
         return (await App.getInstance().getAdaptor().mutate(`
             mutation ($applicationID: String!) {
                 createHackerApplication(application_id: $applicationID) {
@@ -20,7 +20,7 @@ export default class HackerApplicationController {
     /**
      * Update an existing hacker application.
      */
-    updateQuestion = async (hackerApplicationID: string, questionID: string, answer: string[]) => {
+    async updateQuestion(hackerApplicationID: string, questionID: string, answer: string[]): Promise<string> {
         return (await App.getInstance().getAdaptor().mutate(`
             mutation ($hackerApplicationID: String!, $questionID: String!, $answer: [String]!) {
                 updateHackerApplicationAnswer(hacker_application_id: $hackerApplicationID, question_id: $questionID, answer: $answer) {
@@ -35,7 +35,7 @@ export default class HackerApplicationController {
     /**
      * Mark an application as submitted
      */
-    submit = async (hackerApplicationID: string) => {
+    async submit(hackerApplicationID: string): Promise<string> {
         return (await App.getInstance().getAdaptor().mutate(`
             mutation ($hackerApplicationID: String!) {
                 submitHackerApplication(hacker_application_id: $hackerApplicationID) {

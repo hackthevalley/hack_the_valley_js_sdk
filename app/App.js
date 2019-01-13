@@ -1,5 +1,4 @@
 // @flow
-import Adaptor                                  from "./adaptors/Adaptor";
 import {Graph, Hacker, HackerApplication, User} from "./routes";
 import {CONFIG}                                 from "../config";
 import type {Configuration}                     from "../config";
@@ -10,7 +9,7 @@ let instance = null;
 /**
  * Main entry point
  */
-class App {
+export default class App {
 
     Graph             = Graph;
     Hacker            = Hacker;
@@ -67,5 +66,3 @@ class App {
         return instance;
     }
 }
-
-export default App;
