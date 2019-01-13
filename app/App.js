@@ -32,7 +32,6 @@ class App {
 
     /**
      * Get current configuration.
-     * @returns {Object}
      */
     getConfiguration(): Configuration {
         return this.config;
@@ -40,7 +39,6 @@ class App {
 
     /**
      * Get current adaptor.
-     * @returns {Adaptor}
      */
     getAdaptor(): HackTheValleyGraphQLAdaptor {
         return this.adaptor;
@@ -48,7 +46,6 @@ class App {
 
     /**
      * Set authentication token to passed to server
-     * @param {string} token
      */
     setAuthenticationToken(token: string): void {
         this.token = token;
@@ -57,7 +54,6 @@ class App {
 
     /**
      * Get current authentication token.
-     * @returns {null|string}
      */
     getAuthenticationToken(): ?string {
         return this.token;
@@ -65,7 +61,6 @@ class App {
 
     /**
      * Get App singleton instance.
-     * @returns {App}
      */
     static getInstance(): App {
         if (!instance) instance = new App();
