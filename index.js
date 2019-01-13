@@ -4,13 +4,15 @@
  * License: MIT
  */
 
-const App = require('./app/App');
+import "@babel/polyfill";
+import App from './app/App';
 
-let app = new App();
+let app = App.getInstance();
+
 // Export a App instance
 module.exports = app;
 
 // For browsers
-if(typeof window !== "undefined"){
+if (typeof window !== "undefined") {
     window.HTV = app
 }

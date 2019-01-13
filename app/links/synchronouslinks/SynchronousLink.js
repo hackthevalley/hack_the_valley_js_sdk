@@ -1,16 +1,17 @@
+// @flow
 /**
  * Class representing a network link that has request/response structure
  * Author: Jun Zheng
  * License: MIT
  */
 
-const Link = require('../Link');
+import Link from "../Link";
 
-class SynchronousLink extends Link {
-    constructor(url){
+export default class SynchronousLink extends Link {
+
+    type: string = "sync";
+
+    constructor(url: string) {
         super(url);
-        this._type = "sync";
     }
 }
-
-module.exports = SynchronousLink;

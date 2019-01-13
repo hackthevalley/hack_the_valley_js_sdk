@@ -1,23 +1,17 @@
+// @flow
 /**
  * Controller for the graph, used to query stuff :)
  * Author: Jun Zheng
  * License: MIT
  */
 
-class GraphController {
-    constructor(app){
-        this.app = app;
-        this.query = this.query.bind(this);
-    }
+import App from "../App";
 
+export default class GraphController {
     /**
-     * Query the graph
-     * @param query
-     * @param variables
+     * Query the graph.
      */
-    query(query, variables = {}){
-        return this.app.getAdaptor().query(query, variables);
+    query = (query: string, variables: any = {}) => {
+        return App.getInstance().getAdaptor().query(query, variables);
     }
 }
-
-module.exports = GraphController;

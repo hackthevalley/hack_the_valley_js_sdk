@@ -1,16 +1,20 @@
+// @flow
 /**
  * Class representing a network link
  * Author: Jun Zheng
  * License: MIT
  */
 
-class Link {
+export default class Link {
+
+    url: ?string = null;
+
     /**
      * Initialize the link with an URL
      * @param url
      */
-    constructor(url){
-        this._url = url;
+    constructor(url: string) {
+        this.url = url;
     }
 
 
@@ -18,9 +22,8 @@ class Link {
      * Run a request
      * @param config
      */
-    run(config){
+    run(config: any) {
         throw new Error("Not implemented");
     }
 }
 
-module.exports = Link;

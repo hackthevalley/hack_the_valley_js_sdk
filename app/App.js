@@ -1,88 +1,71 @@
-const HackTheValleyApolloAdaptor = require('./adaptors/HackTheValleyApolloAdaptor');
+// @flow
+import Adaptor                                  from "./adaptors/Adaptor";
+import {Graph, Hacker, HackerApplication, User} from "./routes";
+import {CONFIG}                                 from "../config";
+import type {Configuration}                     from "../config";
+import HackTheValleyGraphQLAdaptor              from "./adaptors/HackTheValleyGraphQLAdaptor";
 
-// Controllers
-const GraphController             = require('./controllers/GraphController');
-const HackerController            = require('./controllers/HackerController');
-const UserController              = require('./controllers/UserController');
-const HackerApplicationController = require('./controllers/HackerApplicationController');
+let instance = null;
 
-class App {
+export default class App {
+
+    Graph             = Graph;
+    Hacker            = Hacker;
+    HackerApplication = HackerApplication;
+    User              = User;
+
+    token: string;
+    adaptor: HackTheValleyGraphQLAdaptor;
+    config: Configuration = CONFIG;
+
     /**
      * Construct the App instance
      */
     constructor() {
-        this._token = null;
-
-        this.config = {
-            endpoints: require('../config/endpoints')
-        };
-
-        this._adaptor = new HackTheValleyApolloAdaptor({
-            apolloEndpoint: this.getConfiguration().endpoints.apolloEndpoint
+        this.adaptor = new HackTheValleyGraphQLAdaptor({
+            graphqlEndpoint: this.getConfiguration().endpoints.graphqlEndpoint
         });
-
-        // Initialize controllers
-        this._graphController             = new GraphController(this);
-        this._hackerController            = new HackerController(this);
-        this._hackerApplicationController = new HackerApplicationController(this);
-        this._userController              = new UserController(this);
-
-        // Expose routes
-        this.Graph = {
-            query: this._graphController.query
-        };
-
-        this.Hacker = {
-            create: this._hackerController.create,
-            update: this._hackerController.update,
-            createToken: this._hackerController.createToken,
-            sendPasswordResetEmail: this._hackerController.sendPasswordResetEmail,
-            resetPassword: this._hackerController.resetPassword
-        };
-
-        this.HackerApplication = {
-            create: this._hackerApplicationController.create,
-            updateQuestion: this._hackerApplicationController.updateQuestion,
-            submit: this._hackerApplicationController.submit
-        };
-
-        this.User = {
-            createToken: this._userController.createToken
-        }
     }
 
     /**
-     * Get current configuration
-     * @returns {{endpoints: ({apolloEndpoint: string}|{apolloEndpoint})}|*}
+     * Get current configuration.
+     * @returns {Object}
      */
-    getConfiguration() {
+    getConfiguration(): Configuration {
         return this.config;
     }
 
     /**
-     * Get current adaptor
-     * @returns {HackTheValleyApolloAdaptor}
+     * Get current adaptor.
+     * @returns {Adaptor}
      */
-    getAdaptor() {
-        return this._adaptor;
+    getAdaptor(): HackTheValleyGraphQLAdaptor {
+        return this.adaptor;
     }
 
     /**
      * Set authentication token to passed to server
-     * @param token
+     * @param {string} token
      */
-    setAuthenticationToken(token) {
-        this._token = token;
-        this._adaptor.setAuthenticationToken(token);
+    setAuthenticationToken(token: string): void {
+        this.token = token;
+        (this.adaptor: HackTheValleyGraphQLAdaptor).setAuthenticationToken(token);
     }
 
     /**
-     * Get current authentication token
+     * Get current authentication token.
      * @returns {null|string}
      */
-    getAuthenticationToken() {
-        return this._token;
+    getAuthenticationToken(): ?string {
+        return this.token;
+    }
+
+    /**
+     * Get App singleton instance.
+     * @returns {App}
+     */
+    static getInstance(): App {
+        if (!instance) instance = new App();
+        return instance;
     }
 }
-
-module.exports = App;

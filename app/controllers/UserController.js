@@ -1,28 +1,21 @@
-class UserController {
-    constructor(app){
-        this.app = app;
-    }
+// @flow
+import App from "../App";
+
+export default class UserController {
 
     /**
-     * Create a new user token
-     * @param username
-     * @param password
-     * @param expire_after
-     * @returns {Promise<any>}
+     * Create a new user token.
      */
-    createToken = async (username, password, expire_after = 86400) => {
-        let result = await this.app.getAdaptor().mutate(`
-            mutation createUserToken ($username: String!, $password: String!, $expire_after: Int) {
-                createUserToken(username: $username, password: $password, expire_after: $expire_after) {
+    createToken = async (username: string, password: string, expireAfter: number = 86400) => {
+        return (await App.getInstance().getAdaptor().mutate(`
+            mutation ($username: String!, $password: String!, $expireAfter: Int) {
+                createUserToken(username: $username, password: $password, expire_after: $expireAfter) {
                     token_body
                 }
             }
         `, {
-            username, password, expire_after
-        });
-        return result.createUserToken.token_body;
+            username, password, expireAfter
+        })).createUserToken.token_body;
     }
 
 }
-
-module.exports = UserController;

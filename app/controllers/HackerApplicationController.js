@@ -1,84 +1,49 @@
-class HackerApplicationController {
-    constructor(app){
-        this.app = app;
-        this.create = this.create.bind(this);
-        this.updateQuestion = this.updateQuestion.bind(this);
-        this.submit = this.submit.bind(this);
-    }
+// @flow
+import App from "../App";
 
+export default class HackerApplicationController {
     /**
      * Create a new hacker hacker application, return hacker application ID if successful
-     * @param application_id
-     * @returns {Promise<any>}
      */
-    create(application_id){
-        return new Promise((resolve, reject) => {
-            let mutationString = `
-                mutation createHackerApplication($application_id: String!) {
-                    createHackerApplication(application_id: $application_id) {
-                        _id
-                    }
+    create = async (applicationID: string) => {
+        return (await App.getInstance().getAdaptor().mutate(`
+            mutation ($applicationID: String!) {
+                createHackerApplication(application_id: $applicationID) {
+                    _id
                 }
-            `;
-            this.app.getAdaptor().mutate(mutationString, {
-                application_id,
-            }).then(result => {
-                resolve(result.createHackerApplication._id);
-            }).catch(e => {
-                reject(e);
-            });
-        });
-    }
+            }
+        `, {
+            applicationID,
+        })).createHackerApplication._id;
+    };
 
     /**
-     * Update an existing hacker application
-     * @param hacker_application_id
-     * @param question_id
-     * @param answer
-     * @returns {Promise<any>}
+     * Update an existing hacker application.
      */
-    updateQuestion(hacker_application_id, question_id, answer) {
-        return new Promise((resolve, reject) => {
-            let mutationString = `
-                mutation updateHackerApplicationAnswer ($hacker_application_id: String!, $question_id: String!, $answer: [String]!) {
-                    updateHackerApplicationAnswer(hacker_application_id: $hacker_application_id, question_id: $question_id, answer: $answer) {
-                        _id
-                    }
+    updateQuestion = async (hackerApplicationID: string, questionID: string, answer: string[]) => {
+        return (await App.getInstance().getAdaptor().mutate(`
+            mutation ($hackerApplicationID: String!, $questionID: String!, $answer: [String]!) {
+                updateHackerApplicationAnswer(hacker_application_id: $hackerApplicationID, question_id: $questionID, answer: $answer) {
+                    _id
                 }
-            `;
-            this.app.getAdaptor().mutate(mutationString, {
-                hacker_application_id, question_id, answer
-            }).then(result => {
-                resolve(result.updateHackerApplicationAnswer._id);
-            }).catch(e => {
-                reject(e);
-            });
-        });
-    }
+            }
+        `, {
+            hackerApplicationID, questionID, answer
+        })).updateHackerApplicationAnswer._id;
+    };
 
     /**
      * Mark an application as submitted
-     * @param hacker_application_id
-     * @returns {Promise<any>}
      */
-    submit(hacker_application_id) {
-        return new Promise((resolve, reject) => {
-            let mutationString = `
-                mutation submitHackerApplication($hacker_application_id: String!) {
-                    submitHackerApplication(hacker_application_id: $hacker_application_id) {
-                        _id
-                    }
+    submit = async (hackerApplicationID: string) => {
+        return (await App.getInstance().getAdaptor().mutate(`
+            mutation ($hackerApplicationID: String!) {
+                submitHackerApplication(hacker_application_id: $hackerApplicationID) {
+                    _id
                 }
-            `;
-            this.app.getAdaptor().mutate(mutationString, {
-                hacker_application_id
-            }).then(result => {
-                resolve(result.submitHackerApplication._id)
-            }).catch(e => {
-                reject(e);
-            })
-        })
+            }
+        `, {
+            hackerApplicationID
+        })).submitHackerApplication._id;
     }
 }
-
-module.exports = HackerApplicationController;
