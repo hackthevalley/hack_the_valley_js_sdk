@@ -8,8 +8,10 @@
     "build": "babel . -d lib --ignore node_modules"
   },
   "husky": {
-    "pre-commit": "npm run build && npm test",
-    "pre-push": "npm run build && npm test"
+    "hooks": {
+      "pre-commit": "npm run build && npm test",
+      "pre-push": "npm run build && npm test"
+    }
   },
   "repository": {
     "type": "git",
