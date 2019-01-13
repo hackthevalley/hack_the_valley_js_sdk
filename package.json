@@ -5,7 +5,10 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "flow",
-    "build": "babel . -d lib --ignore node_modules"
+    "build": "babel . -d lib --ignore node_modules",
+    "deploy-docs": "./scripts/deploy-docs.sh",
+    "deploy:patch": "npm version patch",
+    "deploy": "npm run deploy:patch"
   },
   "husky": {
     "hooks": {
