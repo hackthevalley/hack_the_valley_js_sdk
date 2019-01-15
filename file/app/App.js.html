@@ -32,7 +32,8 @@
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#adaptors">adaptors</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/adaptors/Adaptor.js~Adaptor.html">Adaptor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor.html">HackTheValleyGraphQLAdaptor</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#controllers">controllers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/GraphController.js~GraphController.html">GraphController</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#controllers">controllers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/FileController.js~FileController.html">FileController</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/GraphController.js~GraphController.html">GraphController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/HackerApplicationController.js~HackerApplicationController.html">HackerApplicationController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/HackerController.js~HackerController.html">HackerController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/UserController.js~UserController.html">UserController</a></span></span></li>
@@ -40,20 +41,20 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#links-synchronouslinks">links/synchronouslinks</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/links/synchronouslinks/GraphQLLink.js~GraphQLLink.html">GraphQLLink</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/links/synchronouslinks/HttpLink.js~HttpLink.html">HttpLink</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/links/synchronouslinks/SynchronousLink.js~SynchronousLink.html">SynchronousLink</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes">routes</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Graph">Graph</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Hacker">Hacker</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-HackerApplication">HackerApplication</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-User">User</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">app/App.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
-import {Graph, Hacker, HackerApplication, User} from &quot;./routes&quot;;
-import {CONFIG}                                 from &quot;../config&quot;;
-import type {Configuration}                     from &quot;../config&quot;;
-import HackTheValleyGraphQLAdaptor              from &quot;./adaptors/HackTheValleyGraphQLAdaptor&quot;;
+import {CONFIG}                    from &quot;../config&quot;;
+import type {Configuration}        from &quot;../config&quot;;
+import HackTheValleyGraphQLAdaptor from &quot;./adaptors/HackTheValleyGraphQLAdaptor&quot;;
+import FileController              from &quot;./controllers/FileController&quot;;
+import GraphController             from &quot;./controllers/GraphController&quot;;
+import HackerController            from &quot;./controllers/HackerController&quot;;
+import HackerApplicationController from &quot;./controllers/HackerApplicationController&quot;;
+import UserController              from &quot;./controllers/UserController&quot;;
 
 let instance = null;
 
@@ -62,10 +63,11 @@ let instance = null;
  */
 export default class App {
 
-    Graph             = Graph;
-    Hacker            = Hacker;
-    HackerApplication = HackerApplication;
-    User              = User;
+    Graph: GraphController                         = new GraphController();
+    Hacker: HackerController                       = new HackerController();
+    HackerApplication: HackerApplicationController = new HackerApplicationController();
+    User: UserController                           = new UserController();
+    File: FileController                           = new FileController();
 
     token: string;
     adaptor: HackTheValleyGraphQLAdaptor;

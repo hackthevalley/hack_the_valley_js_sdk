@@ -12,10 +12,10 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@hackthevalley/sdk/app/routes/graph.js~graph",
-    "variable/index.html#static-variable-Graph",
-    "<span>Graph</span> <span class=\"search-result-import-path\">@hackthevalley/sdk/app/routes/Graph.js</span>",
-    "variable"
+    "@hackthevalley/sdk/app/controllers/filecontroller.js~filecontroller",
+    "class/app/controllers/FileController.js~FileController.html",
+    "<span>FileController</span> <span class=\"search-result-import-path\">@hackthevalley/sdk/app/controllers/FileController.js</span>",
+    "class"
   ],
   [
     "@hackthevalley/sdk/app/controllers/graphcontroller.js~graphcontroller",
@@ -34,18 +34,6 @@ window.esdocSearchIndex = [
     "class/app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor.html",
     "<span>HackTheValleyGraphQLAdaptor</span> <span class=\"search-result-import-path\">@hackthevalley/sdk/app/adaptors/HackTheValleyGraphQLAdaptor.js</span>",
     "class"
-  ],
-  [
-    "@hackthevalley/sdk/app/routes/hacker.js~hacker",
-    "variable/index.html#static-variable-Hacker",
-    "<span>Hacker</span> <span class=\"search-result-import-path\">@hackthevalley/sdk/app/routes/Hacker.js</span>",
-    "variable"
-  ],
-  [
-    "@hackthevalley/sdk/app/routes/hackerapplication.js~hackerapplication",
-    "variable/index.html#static-variable-HackerApplication",
-    "<span>HackerApplication</span> <span class=\"search-result-import-path\">@hackthevalley/sdk/app/routes/HackerApplication.js</span>",
-    "variable"
   ],
   [
     "@hackthevalley/sdk/app/controllers/hackerapplicationcontroller.js~hackerapplicationcontroller",
@@ -76,12 +64,6 @@ window.esdocSearchIndex = [
     "class/app/links/synchronouslinks/SynchronousLink.js~SynchronousLink.html",
     "<span>SynchronousLink</span> <span class=\"search-result-import-path\">@hackthevalley/sdk/app/links/synchronouslinks/SynchronousLink.js</span>",
     "class"
-  ],
-  [
-    "@hackthevalley/sdk/app/routes/user.js~user",
-    "variable/index.html#static-variable-User",
-    "<span>User</span> <span class=\"search-result-import-path\">@hackthevalley/sdk/app/routes/User.js</span>",
-    "variable"
   ],
   [
     "@hackthevalley/sdk/app/controllers/usercontroller.js~usercontroller",
@@ -378,6 +360,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "app/app.js~app#file",
+    "class/app/App.js~App.html#instance-member-File",
+    "app/App.js~App#File",
+    "member"
+  ],
+  [
     "app/app.js~app#graph",
     "class/app/App.js~App.html#instance-member-Graph",
     "app/App.js~App#Graph",
@@ -519,6 +507,18 @@ window.esdocSearchIndex = [
     "app/adaptors/hackthevalleygraphqladaptor.js~hackthevalleygraphqladaptor#setgraphqlendpoint",
     "class/app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor.html#instance-method-setGraphQLEndpoint",
     "app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor#setGraphQLEndpoint",
+    "method"
+  ],
+  [
+    "app/controllers/filecontroller.js",
+    "file/app/controllers/FileController.js.html",
+    "app/controllers/FileController.js",
+    "file"
+  ],
+  [
+    "app/controllers/filecontroller.js~filecontroller#getbase64fromfile",
+    "class/app/controllers/FileController.js~FileController.html#instance-method-getBase64FromFile",
+    "app/controllers/FileController.js~FileController#getBase64FromFile",
     "method"
   ],
   [
@@ -724,35 +724,5 @@ window.esdocSearchIndex = [
     "class/app/links/synchronouslinks/SynchronousLink.js~SynchronousLink.html#instance-member-type",
     "app/links/synchronouslinks/SynchronousLink.js~SynchronousLink#type",
     "member"
-  ],
-  [
-    "app/routes/graph.js",
-    "file/app/routes/Graph.js.html",
-    "app/routes/Graph.js",
-    "file"
-  ],
-  [
-    "app/routes/hacker.js",
-    "file/app/routes/Hacker.js.html",
-    "app/routes/Hacker.js",
-    "file"
-  ],
-  [
-    "app/routes/hackerapplication.js",
-    "file/app/routes/HackerApplication.js.html",
-    "app/routes/HackerApplication.js",
-    "file"
-  ],
-  [
-    "app/routes/user.js",
-    "file/app/routes/User.js.html",
-    "app/routes/User.js",
-    "file"
-  ],
-  [
-    "app/routes/index.js",
-    "file/app/routes/index.js.html",
-    "app/routes/index.js",
-    "file"
   ]
 ]

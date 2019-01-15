@@ -32,7 +32,8 @@
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#adaptors">adaptors</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/adaptors/Adaptor.js~Adaptor.html">Adaptor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor.html">HackTheValleyGraphQLAdaptor</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#controllers">controllers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/GraphController.js~GraphController.html">GraphController</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#controllers">controllers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/FileController.js~FileController.html">FileController</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/GraphController.js~GraphController.html">GraphController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/HackerApplicationController.js~HackerApplicationController.html">HackerApplicationController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/HackerController.js~HackerController.html">HackerController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/UserController.js~UserController.html">UserController</a></span></span></li>
@@ -40,15 +41,11 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#links-synchronouslinks">links/synchronouslinks</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/links/synchronouslinks/GraphQLLink.js~GraphQLLink.html">GraphQLLink</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/links/synchronouslinks/HttpLink.js~HttpLink.html">HttpLink</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/links/synchronouslinks/SynchronousLink.js~SynchronousLink.html">SynchronousLink</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes">routes</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Graph">Graph</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Hacker">Hacker</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-HackerApplication">HackerApplication</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-User">User</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">45/68</span></h1>
+<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">51/63</span></h1>
 
 <table class="files-summary" data-ice="files" data-use-coverage="true">
   <thead>
@@ -64,12 +61,12 @@
   <tbody>
     
   <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/app/App.js.html#errorLines=14,15,16,17,7">app/App.js</a></span></td>
+      <td data-ice="filePath"><span><a href="file/app/App.js.html#errorLines=11">app/App.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/app/App.js~App.html">App</a></span></td>
-      <td class="coverage"><span data-ice="coverage">66 %</span><span data-ice="coverageCount" class="coverage-count">10/15</span></td>
-      <td style="display: none;" data-ice="size">1621 byte</td>
-      <td style="display: none;" data-ice="lines">68</td>
-      <td style="display: none;" data-ice="updated">2019-01-01 02:50:58 (UTC)</td>
+      <td class="coverage"><span data-ice="coverage">93 %</span><span data-ice="coverageCount" class="coverage-count">15/16</span></td>
+      <td style="display: none;" data-ice="size">2148 byte</td>
+      <td style="display: none;" data-ice="lines">73</td>
+      <td style="display: none;" data-ice="updated">2019-01-03 06:33:31 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/app/adaptors/Adaptor.js.html#errorLines=2">app/adaptors/Adaptor.js</a></span></td>
@@ -88,12 +85,20 @@
       <td style="display: none;" data-ice="updated">2019-01-01 01:37:51 (UTC)</td>
     </tr>
 <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/app/controllers/GraphController.js.html#errorLines=10">app/controllers/GraphController.js</a></span></td>
+      <td data-ice="filePath"><span><a href="file/app/controllers/FileController.js.html#errorLines=2">app/controllers/FileController.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="class/app/controllers/FileController.js~FileController.html">FileController</a></span></td>
+      <td class="coverage"><span data-ice="coverage">50 %</span><span data-ice="coverageCount" class="coverage-count">1/2</span></td>
+      <td style="display: none;" data-ice="size">521 byte</td>
+      <td style="display: none;" data-ice="lines">15</td>
+      <td style="display: none;" data-ice="updated">2019-01-03 06:29:09 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/app/controllers/GraphController.js.html#errorLines=4">app/controllers/GraphController.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/app/controllers/GraphController.js~GraphController.html">GraphController</a></span></td>
       <td class="coverage"><span data-ice="coverage">50 %</span><span data-ice="coverageCount" class="coverage-count">1/2</span></td>
-      <td style="display: none;" data-ice="size">354 byte</td>
-      <td style="display: none;" data-ice="lines">17</td>
-      <td style="display: none;" data-ice="updated">2019-01-01 02:46:26 (UTC)</td>
+      <td style="display: none;" data-ice="size">256 byte</td>
+      <td style="display: none;" data-ice="lines">11</td>
+      <td style="display: none;" data-ice="updated">2019-01-03 06:25:21 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/app/controllers/HackerApplicationController.js.html#errorLines=4">app/controllers/HackerApplicationController.js</a></span></td>
@@ -150,46 +155,6 @@
       <td style="display: none;" data-ice="size">297 byte</td>
       <td style="display: none;" data-ice="lines">17</td>
       <td style="display: none;" data-ice="updated">2019-01-01 01:21:34 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/app/routes/Graph.js.html#errorLines=5,7">app/routes/Graph.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-Graph">Graph</a></span></td>
-      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/2</span></td>
-      <td style="display: none;" data-ice="size">180 byte</td>
-      <td style="display: none;" data-ice="lines">9</td>
-      <td style="display: none;" data-ice="updated">2019-01-01 02:52:44 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/app/routes/Hacker.js.html#errorLines=5,7">app/routes/Hacker.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-Hacker">Hacker</a></span></td>
-      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/2</span></td>
-      <td style="display: none;" data-ice="size">391 byte</td>
-      <td style="display: none;" data-ice="lines">13</td>
-      <td style="display: none;" data-ice="updated">2019-01-01 00:58:49 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/app/routes/HackerApplication.js.html#errorLines=5,7">app/routes/HackerApplication.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-HackerApplication">HackerApplication</a></span></td>
-      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/2</span></td>
-      <td style="display: none;" data-ice="size">366 byte</td>
-      <td style="display: none;" data-ice="lines">11</td>
-      <td style="display: none;" data-ice="updated">2019-01-01 01:05:44 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/app/routes/User.js.html#errorLines=5,7">app/routes/User.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-User">User</a></span></td>
-      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/2</span></td>
-      <td style="display: none;" data-ice="size">186 byte</td>
-      <td style="display: none;" data-ice="lines">9</td>
-      <td style="display: none;" data-ice="updated">2019-01-01 01:09:12 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/app/routes/index.js.html">app/routes/index.js</a></span></td>
-      <td data-ice="identifier" class="identifiers">-</td>
-      <td class="coverage"><span data-ice="coverage">-</span></td>
-      <td style="display: none;" data-ice="size">107 byte</td>
-      <td style="display: none;" data-ice="lines">3</td>
-      <td style="display: none;" data-ice="updated">2019-01-01 01:08:47 (UTC)</td>
     </tr>
 </tbody>
 </table>

@@ -1,17 +1,13 @@
 {
-  "coverage": "66.17%",
-  "expectCount": 68,
-  "actualCount": 45,
+  "coverage": "80.95%",
+  "expectCount": 63,
+  "actualCount": 51,
   "files": {
     "app/App.js": {
-      "expectCount": 15,
-      "actualCount": 10,
+      "expectCount": 16,
+      "actualCount": 15,
       "undocumentLines": [
-        7,
-        14,
-        15,
-        16,
-        17
+        11
       ]
     },
     "app/adaptors/Adaptor.js": {
@@ -28,11 +24,18 @@
         12
       ]
     },
+    "app/controllers/FileController.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        2
+      ]
+    },
     "app/controllers/GraphController.js": {
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
-        10
+        4
       ]
     },
     "app/controllers/HackerApplicationController.js": {
@@ -82,38 +85,6 @@
       "actualCount": 2,
       "undocumentLines": [
         10
-      ]
-    },
-    "app/routes/Graph.js": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        5,
-        7
-      ]
-    },
-    "app/routes/Hacker.js": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        5,
-        7
-      ]
-    },
-    "app/routes/HackerApplication.js": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        5,
-        7
-      ]
-    },
-    "app/routes/User.js": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        5,
-        7
       ]
     }
   }

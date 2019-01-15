@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "app/App.js",
-    "content": "// @flow\nimport {Graph, Hacker, HackerApplication, User} from \"./routes\";\nimport {CONFIG}                                 from \"../config\";\nimport type {Configuration}                     from \"../config\";\nimport HackTheValleyGraphQLAdaptor              from \"./adaptors/HackTheValleyGraphQLAdaptor\";\n\nlet instance = null;\n\n/**\n * Main entry point\n */\nexport default class App {\n\n    Graph             = Graph;\n    Hacker            = Hacker;\n    HackerApplication = HackerApplication;\n    User              = User;\n\n    token: string;\n    adaptor: HackTheValleyGraphQLAdaptor;\n    config: Configuration = CONFIG;\n\n    /**\n     * Construct the App instance\n     */\n    constructor() {\n        this.adaptor = new HackTheValleyGraphQLAdaptor({\n            graphqlEndpoint: this.getConfiguration().endpoints.graphqlEndpoint\n        });\n    }\n\n    /**\n     * Get current configuration.\n     */\n    getConfiguration(): Configuration {\n        return this.config;\n    }\n\n    /**\n     * Get current adaptor.\n     */\n    getAdaptor(): HackTheValleyGraphQLAdaptor {\n        return this.adaptor;\n    }\n\n    /**\n     * Set authentication token to passed to server\n     */\n    setAuthenticationToken(token: string): void {\n        this.token = token;\n        (this.adaptor: HackTheValleyGraphQLAdaptor).setAuthenticationToken(token);\n    }\n\n    /**\n     * Get current authentication token.\n     */\n    getAuthenticationToken(): ?string {\n        return this.token;\n    }\n\n    /**\n     * Get App singleton instance.\n     */\n    static getInstance(): App {\n        if (!instance) instance = new App();\n        return instance;\n    }\n}\n",
+    "content": "// @flow\nimport {CONFIG}                    from \"../config\";\nimport type {Configuration}        from \"../config\";\nimport HackTheValleyGraphQLAdaptor from \"./adaptors/HackTheValleyGraphQLAdaptor\";\nimport FileController              from \"./controllers/FileController\";\nimport GraphController             from \"./controllers/GraphController\";\nimport HackerController            from \"./controllers/HackerController\";\nimport HackerApplicationController from \"./controllers/HackerApplicationController\";\nimport UserController              from \"./controllers/UserController\";\n\nlet instance = null;\n\n/**\n * Main entry point\n */\nexport default class App {\n\n    Graph: GraphController                         = new GraphController();\n    Hacker: HackerController                       = new HackerController();\n    HackerApplication: HackerApplicationController = new HackerApplicationController();\n    User: UserController                           = new UserController();\n    File: FileController                           = new FileController();\n\n    token: string;\n    adaptor: HackTheValleyGraphQLAdaptor;\n    config: Configuration = CONFIG;\n\n    /**\n     * Construct the App instance\n     */\n    constructor() {\n        this.adaptor = new HackTheValleyGraphQLAdaptor({\n            graphqlEndpoint: this.getConfiguration().endpoints.graphqlEndpoint\n        });\n    }\n\n    /**\n     * Get current configuration.\n     */\n    getConfiguration(): Configuration {\n        return this.config;\n    }\n\n    /**\n     * Get current adaptor.\n     */\n    getAdaptor(): HackTheValleyGraphQLAdaptor {\n        return this.adaptor;\n    }\n\n    /**\n     * Set authentication token to passed to server\n     */\n    setAuthenticationToken(token: string): void {\n        this.token = token;\n        (this.adaptor: HackTheValleyGraphQLAdaptor).setAuthenticationToken(token);\n    }\n\n    /**\n     * Get current authentication token.\n     */\n    getAuthenticationToken(): ?string {\n        return this.token;\n    }\n\n    /**\n     * Get App singleton instance.\n     */\n    static getInstance(): App {\n        if (!instance) instance = new App();\n        return instance;\n    }\n}\n",
     "static": true,
     "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/app/App.js",
     "access": "public",
@@ -586,7 +586,7 @@
     "importPath": "@hackthevalley/sdk/app/App.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 11,
     "undocument": true,
     "type": {
       "types": [
@@ -607,7 +607,7 @@
     "importPath": "@hackthevalley/sdk/app/App.js",
     "importStyle": "App",
     "description": "Main entry point",
-    "lineNumber": 12,
+    "lineNumber": 16,
     "interface": false
   },
   {
@@ -618,13 +618,15 @@
     "static": false,
     "longname": "app/App.js~App#Graph",
     "access": "public",
-    "description": null,
-    "lineNumber": 14,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 18,
     "type": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "GraphController"
+      ],
+      "spread": false,
+      "description": null
     }
   },
   {
@@ -635,13 +637,15 @@
     "static": false,
     "longname": "app/App.js~App#Hacker",
     "access": "public",
-    "description": null,
-    "lineNumber": 15,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 19,
     "type": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "HackerController"
+      ],
+      "spread": false,
+      "description": null
     }
   },
   {
@@ -652,13 +656,15 @@
     "static": false,
     "longname": "app/App.js~App#HackerApplication",
     "access": "public",
-    "description": null,
-    "lineNumber": 16,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 20,
     "type": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "HackerApplicationController"
+      ],
+      "spread": false,
+      "description": null
     }
   },
   {
@@ -669,17 +675,38 @@
     "static": false,
     "longname": "app/App.js~App#User",
     "access": "public",
-    "description": null,
-    "lineNumber": 17,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 21,
     "type": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "UserController"
+      ],
+      "spread": false,
+      "description": null
     }
   },
   {
     "__docId__": 55,
+    "kind": "member",
+    "name": "File",
+    "memberof": "app/App.js~App",
+    "static": false,
+    "longname": "app/App.js~App#File",
+    "access": "public",
+    "description": "",
+    "lineNumber": 22,
+    "type": {
+      "nullable": null,
+      "types": [
+        "FileController"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 56,
     "kind": "member",
     "name": "token",
     "memberof": "app/App.js~App",
@@ -687,7 +714,7 @@
     "longname": "app/App.js~App#token",
     "access": "public",
     "description": "",
-    "lineNumber": 19,
+    "lineNumber": 24,
     "type": {
       "nullable": null,
       "types": [
@@ -698,7 +725,7 @@
     }
   },
   {
-    "__docId__": 56,
+    "__docId__": 57,
     "kind": "member",
     "name": "adaptor",
     "memberof": "app/App.js~App",
@@ -706,7 +733,7 @@
     "longname": "app/App.js~App#adaptor",
     "access": "public",
     "description": "",
-    "lineNumber": 20,
+    "lineNumber": 25,
     "type": {
       "nullable": null,
       "types": [
@@ -717,7 +744,7 @@
     }
   },
   {
-    "__docId__": 57,
+    "__docId__": 58,
     "kind": "member",
     "name": "config",
     "memberof": "app/App.js~App",
@@ -725,7 +752,7 @@
     "longname": "app/App.js~App#config",
     "access": "public",
     "description": "",
-    "lineNumber": 21,
+    "lineNumber": 26,
     "type": {
       "nullable": null,
       "types": [
@@ -736,7 +763,7 @@
     }
   },
   {
-    "__docId__": 58,
+    "__docId__": 59,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "app/App.js~App",
@@ -746,10 +773,10 @@
     "longname": "app/App.js~App#constructor",
     "access": "public",
     "description": "Construct the App instance ",
-    "lineNumber": 26
+    "lineNumber": 31
   },
   {
-    "__docId__": 60,
+    "__docId__": 61,
     "kind": "method",
     "name": "getConfiguration",
     "memberof": "app/App.js~App",
@@ -759,7 +786,7 @@
     "longname": "app/App.js~App#getConfiguration",
     "access": "public",
     "description": "Get current configuration.  ",
-    "lineNumber": 35,
+    "lineNumber": 40,
     "return": {
       "nullable": null,
       "types": [
@@ -771,7 +798,7 @@
     "params": []
   },
   {
-    "__docId__": 61,
+    "__docId__": 62,
     "kind": "method",
     "name": "getAdaptor",
     "memberof": "app/App.js~App",
@@ -781,7 +808,7 @@
     "longname": "app/App.js~App#getAdaptor",
     "access": "public",
     "description": "Get current adaptor.  ",
-    "lineNumber": 42,
+    "lineNumber": 47,
     "return": {
       "nullable": null,
       "types": [
@@ -793,7 +820,7 @@
     "params": []
   },
   {
-    "__docId__": 62,
+    "__docId__": 63,
     "kind": "method",
     "name": "setAuthenticationToken",
     "memberof": "app/App.js~App",
@@ -803,7 +830,7 @@
     "longname": "app/App.js~App#setAuthenticationToken",
     "access": "public",
     "description": "Set authentication token to passed to server  ",
-    "lineNumber": 49,
+    "lineNumber": 54,
     "params": [
       {
         "nullable": null,
@@ -826,7 +853,7 @@
     }
   },
   {
-    "__docId__": 64,
+    "__docId__": 65,
     "kind": "method",
     "name": "getAuthenticationToken",
     "memberof": "app/App.js~App",
@@ -836,7 +863,7 @@
     "longname": "app/App.js~App#getAuthenticationToken",
     "access": "public",
     "description": "Get current authentication token.  ",
-    "lineNumber": 57,
+    "lineNumber": 62,
     "return": {
       "nullable": true,
       "types": [
@@ -848,7 +875,7 @@
     "params": []
   },
   {
-    "__docId__": 65,
+    "__docId__": 66,
     "kind": "method",
     "name": "getInstance",
     "memberof": "app/App.js~App",
@@ -858,7 +885,7 @@
     "longname": "app/App.js~App.getInstance",
     "access": "public",
     "description": "Get App singleton instance.  ",
-    "lineNumber": 64,
+    "lineNumber": 69,
     "return": {
       "nullable": null,
       "types": [
@@ -870,7 +897,7 @@
     "params": []
   },
   {
-    "__docId__": 66,
+    "__docId__": 67,
     "kind": "file",
     "name": "app/adaptors/Adaptor.js",
     "content": "// @flow\nexport default class Adaptor {\n\n    config: any = null;\n\n    /**\n     * Construct the adaptor\n     */\n    constructor(config: any) {\n        this.config = config;\n    }\n\n    /**\n     * Run an adaptor request\n     */\n    run(config: any): any {\n        throw new Error(\"Not implemented\");\n    }\n}\n",
@@ -881,7 +908,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 67,
+    "__docId__": 68,
     "kind": "class",
     "name": "Adaptor",
     "memberof": "app/adaptors/Adaptor.js",
@@ -897,7 +924,7 @@
     "interface": false
   },
   {
-    "__docId__": 68,
+    "__docId__": 69,
     "kind": "member",
     "name": "config",
     "memberof": "app/adaptors/Adaptor.js~Adaptor",
@@ -916,7 +943,7 @@
     }
   },
   {
-    "__docId__": 69,
+    "__docId__": 70,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "app/adaptors/Adaptor.js~Adaptor",
@@ -941,7 +968,7 @@
     ]
   },
   {
-    "__docId__": 71,
+    "__docId__": 72,
     "kind": "method",
     "name": "run",
     "memberof": "app/adaptors/Adaptor.js~Adaptor",
@@ -974,7 +1001,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 73,
     "kind": "file",
     "name": "app/adaptors/HackTheValleyGraphQLAdaptor.js",
     "content": "// @flow\n/**\n * Network adaptor for Hack the Valley GraphQL\n * Author: Jun Zheng\n * License: MIT\n */\n\nimport Adaptor                       from \"./Adaptor\";\nimport GraphQLLink                   from \"../links/synchronouslinks/GraphQLLink\";\nimport type {EndpointsConfiguration} from \"../../config/endpoints\";\n\nexport default class HackTheValleyGraphQLAdaptor extends Adaptor {\n\n    link: GraphQLLink;\n\n    constructor(config: EndpointsConfiguration) {\n        super(config);\n        this.link = new GraphQLLink(config.graphqlEndpoint);\n    }\n\n    setAuthenticationToken(token: string) {\n        this.link = new GraphQLLink(this.config.graphqlEndpoint, {\n            headers: {\n                authorization: \"Bearer \" + token\n            }\n        });\n    }\n\n    setGraphQLEndpoint(url: string) {\n        this.link                   = new GraphQLLink(url);\n        this.config.graphqlEndpoint = url;\n    }\n\n    query(query: string, variables: any = {}) {\n        return this.link.query({query, variables});\n    }\n\n    mutate(query: string, variables: any = {}) {\n        return this.link.mutate({query, variables});\n    }\n}\n",
@@ -985,7 +1012,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 73,
+    "__docId__": 74,
     "kind": "class",
     "name": "HackTheValleyGraphQLAdaptor",
     "memberof": "app/adaptors/HackTheValleyGraphQLAdaptor.js",
@@ -1004,7 +1031,7 @@
     ]
   },
   {
-    "__docId__": 74,
+    "__docId__": 75,
     "kind": "member",
     "name": "link",
     "memberof": "app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor",
@@ -1023,7 +1050,7 @@
     }
   },
   {
-    "__docId__": 75,
+    "__docId__": 76,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor",
@@ -1048,7 +1075,7 @@
     ]
   },
   {
-    "__docId__": 77,
+    "__docId__": 78,
     "kind": "method",
     "name": "setAuthenticationToken",
     "memberof": "app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor",
@@ -1074,7 +1101,7 @@
     "return": null
   },
   {
-    "__docId__": 79,
+    "__docId__": 80,
     "kind": "method",
     "name": "setGraphQLEndpoint",
     "memberof": "app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor",
@@ -1100,7 +1127,7 @@
     "return": null
   },
   {
-    "__docId__": 81,
+    "__docId__": 82,
     "kind": "method",
     "name": "query",
     "memberof": "app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor",
@@ -1142,7 +1169,7 @@
     }
   },
   {
-    "__docId__": 82,
+    "__docId__": 83,
     "kind": "method",
     "name": "mutate",
     "memberof": "app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor",
@@ -1184,10 +1211,70 @@
     }
   },
   {
-    "__docId__": 83,
+    "__docId__": 84,
+    "kind": "file",
+    "name": "app/controllers/FileController.js",
+    "content": "// @flow\nexport default class FileController {\n    /**\n     * Takes in a File object from browser, convert it to base64.\n     * This function only works if you are running this in a browser.\n     */\n    getBase64FromFile(file: File): Promise<string> {\n        return new Promise((resolve, reject) => {\n            const reader = new FileReader();\n            reader.readAsDataURL(file);\n            reader.onload  = () => resolve(reader.result.toString());\n            reader.onerror = e => reject(e);\n        })\n    }\n}\n",
+    "static": true,
+    "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/app/controllers/FileController.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 85,
+    "kind": "class",
+    "name": "FileController",
+    "memberof": "app/controllers/FileController.js",
+    "static": true,
+    "longname": "app/controllers/FileController.js~FileController",
+    "access": "public",
+    "export": true,
+    "importPath": "@hackthevalley/sdk/app/controllers/FileController.js",
+    "importStyle": "FileController",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "name": "getBase64FromFile",
+    "memberof": "app/controllers/FileController.js~FileController",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "app/controllers/FileController.js~FileController#getBase64FromFile",
+    "access": "public",
+    "description": "Takes in a File object from browser, convert it to base64.\nThis function only works if you are running this in a browser.  ",
+    "lineNumber": 7,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "File"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "file",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<string>"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 87,
     "kind": "file",
     "name": "app/controllers/GraphController.js",
-    "content": "// @flow\n/**\n * Controller for the graph, used to query stuff :)\n * Author: Jun Zheng\n * License: MIT\n */\n\nimport App from \"../App\";\n\nexport default class GraphController {\n    /**\n     * Query the graph.\n     */\n    query(query: string, variables: any = {}): Promise<any> {\n        return App.getInstance().getAdaptor().query(query, variables);\n    }\n}\n",
+    "content": "// @flow\nimport App from \"../App\";\n\nexport default class GraphController {\n    /**\n     * Query the graph.\n     */\n    query(query: string, variables: any = {}): Promise<any> {\n        return App.getInstance().getAdaptor().query(query, variables);\n    }\n}\n",
     "static": true,
     "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/app/controllers/GraphController.js",
     "access": "public",
@@ -1195,7 +1282,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 84,
+    "__docId__": 88,
     "kind": "class",
     "name": "GraphController",
     "memberof": "app/controllers/GraphController.js",
@@ -1206,12 +1293,12 @@
     "importPath": "@hackthevalley/sdk/app/controllers/GraphController.js",
     "importStyle": "GraphController",
     "description": null,
-    "lineNumber": 10,
+    "lineNumber": 4,
     "undocument": true,
     "interface": false
   },
   {
-    "__docId__": 85,
+    "__docId__": 89,
     "kind": "method",
     "name": "query",
     "memberof": "app/controllers/GraphController.js~GraphController",
@@ -1221,7 +1308,7 @@
     "longname": "app/controllers/GraphController.js~GraphController#query",
     "access": "public",
     "description": "Query the graph.  ",
-    "lineNumber": 14,
+    "lineNumber": 8,
     "params": [
       {
         "nullable": null,
@@ -1256,7 +1343,7 @@
     }
   },
   {
-    "__docId__": 86,
+    "__docId__": 90,
     "kind": "file",
     "name": "app/controllers/HackerApplicationController.js",
     "content": "// @flow\nimport App from \"../App\";\n\nexport default class HackerApplicationController {\n    /**\n     * Create a new hacker hacker application, return hacker application ID if successful\n     */\n    async create(applicationID: string): Promise<string> {\n        return (await App.getInstance().getAdaptor().mutate(`\n            mutation ($applicationID: String!) {\n                createHackerApplication(application_id: $applicationID) {\n                    _id\n                }\n            }\n        `, {\n            applicationID,\n        })).createHackerApplication._id;\n    };\n\n    /**\n     * Update an existing hacker application.\n     */\n    async updateQuestion(hackerApplicationID: string, questionID: string, answer: string[]): Promise<string> {\n        return (await App.getInstance().getAdaptor().mutate(`\n            mutation ($hackerApplicationID: String!, $questionID: String!, $answer: [String]!) {\n                updateHackerApplicationAnswer(hacker_application_id: $hackerApplicationID, question_id: $questionID, answer: $answer) {\n                    _id\n                }\n            }\n        `, {\n            hackerApplicationID, questionID, answer\n        })).updateHackerApplicationAnswer._id;\n    };\n\n    /**\n     * Mark an application as submitted\n     */\n    async submit(hackerApplicationID: string): Promise<string> {\n        return (await App.getInstance().getAdaptor().mutate(`\n            mutation ($hackerApplicationID: String!) {\n                submitHackerApplication(hacker_application_id: $hackerApplicationID) {\n                    _id\n                }\n            }\n        `, {\n            hackerApplicationID\n        })).submitHackerApplication._id;\n    }\n}\n",
@@ -1267,7 +1354,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 87,
+    "__docId__": 91,
     "kind": "class",
     "name": "HackerApplicationController",
     "memberof": "app/controllers/HackerApplicationController.js",
@@ -1283,7 +1370,7 @@
     "interface": false
   },
   {
-    "__docId__": 88,
+    "__docId__": 92,
     "kind": "method",
     "name": "create",
     "memberof": "app/controllers/HackerApplicationController.js~HackerApplicationController",
@@ -1316,7 +1403,7 @@
     }
   },
   {
-    "__docId__": 89,
+    "__docId__": 93,
     "kind": "method",
     "name": "updateQuestion",
     "memberof": "app/controllers/HackerApplicationController.js~HackerApplicationController",
@@ -1369,7 +1456,7 @@
     }
   },
   {
-    "__docId__": 90,
+    "__docId__": 94,
     "kind": "method",
     "name": "submit",
     "memberof": "app/controllers/HackerApplicationController.js~HackerApplicationController",
@@ -1402,7 +1489,7 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 95,
     "kind": "file",
     "name": "app/controllers/HackerController.js",
     "content": "// @flow\nimport App                      from \"../App\";\nimport type {UpdateHackerInput} from \"../../flow/graphql/UpdateHackerInput\";\n\nexport default class HackerController {\n    /**\n     * Create a new hacker, return hacker ID if successful.\n     */\n    async create(emailAddress: string, password: string): Promise<string> {\n        return await (App.getInstance().getAdaptor().mutate(`\n            mutation ($emailAddress: String!, $password: String!) {\n                createHacker(email_address: $email_address, password: $password) {\n                    _id\n                }\n            }\n        `, {\n            emailAddress, password\n        })).createHacker._id;\n    };\n\n    /**\n     * Create a new hacker token.\n     */\n    async createToken(emailAddress: string, password: string, expireAfter: number = 86400): Promise<string> {\n        return (await App.getInstance().getAdaptor().mutate(`\n            mutation ($emailAddress: String!, $password: String!, $expireAfter: Int) {\n                createHackerToken(email_address: $emailAddress, password: $password, expire_after: $expireAfter) {\n                    token_body\n                }\n            }\n        `, {\n            emailAddress, password, expireAfter\n        })).createHackerToken.token_body;\n    };\n\n    /**\n     * Update an existing hacker.\n     */\n    async update(id: string, hacker: UpdateHackerInput): Promise<string> {\n        return (await App.getInstance().getAdaptor().mutate(`\n            mutation ($id: String!, $hacker: UpdateHackerInput!) {\n                updateHacker(id: $id, hacker: $hacker) {\n                    _id\n                }\n            }\n        `, {\n            id, hacker\n        })).updateHacker._id;\n    };\n\n    /**\n     * Send password reset email to hacker.\n     */\n    async sendPasswordResetEmail(emailAddress: string): Promise<string> {\n        return (await App.getInstance().getAdaptor().mutate(`\n            mutation sendHackerPasswordResetEmail ($emailAddress: String!) {\n                sendHackerPasswordResetEmail(email_address: $emailAddress)\n            }\n        `, {\n            emailAddress\n        })).sendHackerPasswordResetEmail;\n    };\n\n    /**\n     * Reset hacker's password using reset code.\n     */\n    async resetPassword(emailAddress: string, code: string, newPassword: string): Promise<string> {\n        return (await App.getInstance().getAdaptor().mutate(`\n            mutation ($emailAddress: String!, $code: String!, $newPassword: String!) {\n                resetHackerPassword (email_address: $emailAddress, code: $code, new_password: $newPassword) {\n                    _id\n                }\n            }\n        `, {\n            emailAddress, code, newPassword\n        })).resetHackerPassword._id;\n    }\n}\n",
@@ -1413,7 +1500,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 92,
+    "__docId__": 96,
     "kind": "class",
     "name": "HackerController",
     "memberof": "app/controllers/HackerController.js",
@@ -1429,7 +1516,7 @@
     "interface": false
   },
   {
-    "__docId__": 93,
+    "__docId__": 97,
     "kind": "method",
     "name": "create",
     "memberof": "app/controllers/HackerController.js~HackerController",
@@ -1472,7 +1559,7 @@
     }
   },
   {
-    "__docId__": 94,
+    "__docId__": 98,
     "kind": "method",
     "name": "createToken",
     "memberof": "app/controllers/HackerController.js~HackerController",
@@ -1527,7 +1614,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 99,
     "kind": "method",
     "name": "update",
     "memberof": "app/controllers/HackerController.js~HackerController",
@@ -1570,7 +1657,7 @@
     }
   },
   {
-    "__docId__": 96,
+    "__docId__": 100,
     "kind": "method",
     "name": "sendPasswordResetEmail",
     "memberof": "app/controllers/HackerController.js~HackerController",
@@ -1603,7 +1690,7 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 101,
     "kind": "method",
     "name": "resetPassword",
     "memberof": "app/controllers/HackerController.js~HackerController",
@@ -1656,7 +1743,7 @@
     }
   },
   {
-    "__docId__": 98,
+    "__docId__": 102,
     "kind": "file",
     "name": "app/controllers/UserController.js",
     "content": "// @flow\nimport App from \"../App\";\n\nexport default class UserController {\n\n    /**\n     * Create a new user token.\n     */\n    async createToken(username: string, password: string, expireAfter: number = 86400): Promise<string> {\n        return (await App.getInstance().getAdaptor().mutate(`\n            mutation ($username: String!, $password: String!, $expireAfter: Int) {\n                createUserToken(username: $username, password: $password, expire_after: $expireAfter) {\n                    token_body\n                }\n            }\n        `, {\n            username, password, expireAfter\n        })).createUserToken.token_body;\n    }\n\n}\n",
@@ -1667,7 +1754,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 99,
+    "__docId__": 103,
     "kind": "class",
     "name": "UserController",
     "memberof": "app/controllers/UserController.js",
@@ -1683,7 +1770,7 @@
     "interface": false
   },
   {
-    "__docId__": 100,
+    "__docId__": 104,
     "kind": "method",
     "name": "createToken",
     "memberof": "app/controllers/UserController.js~UserController",
@@ -1738,7 +1825,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 105,
     "kind": "file",
     "name": "app/links/Link.js",
     "content": "// @flow\nexport default class Link {\n\n    url: ?string = null;\n\n    /**\n     * Initialize the link with an URL\n     * @param url\n     */\n    constructor(url: string) {\n        this.url = url;\n    }\n\n    /**\n     * Run a request\n     * @param config\n     */\n    run(config: any) {\n        throw new Error(\"Not implemented\");\n    }\n}\n\n",
@@ -1749,7 +1836,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 102,
+    "__docId__": 106,
     "kind": "class",
     "name": "Link",
     "memberof": "app/links/Link.js",
@@ -1765,7 +1852,7 @@
     "interface": false
   },
   {
-    "__docId__": 103,
+    "__docId__": 107,
     "kind": "member",
     "name": "url",
     "memberof": "app/links/Link.js~Link",
@@ -1784,7 +1871,7 @@
     }
   },
   {
-    "__docId__": 104,
+    "__docId__": 108,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "app/links/Link.js~Link",
@@ -1809,7 +1896,7 @@
     ]
   },
   {
-    "__docId__": 106,
+    "__docId__": 110,
     "kind": "method",
     "name": "run",
     "memberof": "app/links/Link.js~Link",
@@ -1835,7 +1922,7 @@
     "return": null
   },
   {
-    "__docId__": 107,
+    "__docId__": 111,
     "kind": "file",
     "name": "app/links/synchronouslinks/GraphQLLink.js",
     "content": "// @flow\nimport SynchronousLink from \"./SynchronousLink\";\nimport {GraphQLClient} from \"graphql-request\";\n\nexport type GraphQLLinkConfiguration = {\n    headers: any\n};\n\nexport type GraphQLLinkRunConfiguration = {\n    query: string,\n    variables: any\n};\n\nexport default class GraphQLLink extends SynchronousLink {\n\n    client: GraphQLClient;\n\n    /**\n     * Construct a new GraphQLLink.\n     */\n    constructor(url: string, config: GraphQLLinkConfiguration = {}) {\n        super(url);\n        this.client = new GraphQLClient(url, {headers: config.headers || {}});\n    }\n\n    /**\n     * Alias for run.\n     */\n    async query(config: GraphQLLinkRunConfiguration) {\n        return this.run(config);\n    }\n\n    /**\n     * Alias for run.\n     */\n    async mutate(config: GraphQLLinkRunConfiguration): any {\n        return this.run(config);\n    }\n\n    /**\n     * Run a new apollo request\n     */\n    async run(config: GraphQLLinkRunConfiguration): any {\n        return await this.client.request(config.query, config.variables || {});\n    }\n}\n",
@@ -1846,7 +1933,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 108,
+    "__docId__": 112,
     "kind": "class",
     "name": "GraphQLLink",
     "memberof": "app/links/synchronouslinks/GraphQLLink.js",
@@ -1865,7 +1952,7 @@
     ]
   },
   {
-    "__docId__": 109,
+    "__docId__": 113,
     "kind": "member",
     "name": "client",
     "memberof": "app/links/synchronouslinks/GraphQLLink.js~GraphQLLink",
@@ -1884,7 +1971,7 @@
     }
   },
   {
-    "__docId__": 110,
+    "__docId__": 114,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "app/links/synchronouslinks/GraphQLLink.js~GraphQLLink",
@@ -1921,7 +2008,7 @@
     ]
   },
   {
-    "__docId__": 112,
+    "__docId__": 116,
     "kind": "method",
     "name": "query",
     "memberof": "app/links/synchronouslinks/GraphQLLink.js~GraphQLLink",
@@ -1951,7 +2038,7 @@
     }
   },
   {
-    "__docId__": 113,
+    "__docId__": 117,
     "kind": "method",
     "name": "mutate",
     "memberof": "app/links/synchronouslinks/GraphQLLink.js~GraphQLLink",
@@ -1984,7 +2071,7 @@
     }
   },
   {
-    "__docId__": 114,
+    "__docId__": 118,
     "kind": "method",
     "name": "run",
     "memberof": "app/links/synchronouslinks/GraphQLLink.js~GraphQLLink",
@@ -2017,7 +2104,7 @@
     }
   },
   {
-    "__docId__": 115,
+    "__docId__": 119,
     "kind": "file",
     "name": "app/links/synchronouslinks/HttpLink.js",
     "content": "/**\n * Class representing a simple HTTP server link\n * Author: Jun Zheng\n * License: MIT\n */\n\nconst SynchronousLink = require('./SynchronousLink');\n\nconst axios = require('axios');\n\nclass HttpLink extends SynchronousLink {\n    /**\n     * Construct the link with URL\n     * @param url\n     */\n    constructor(url){\n        super(url);\n    }\n\n    /**\n     * Run a get request\n     * @param config\n     * @returns {Promise<Object>}\n     */\n    get(config = {}){\n        return this.run(Object.assign(config, {method: 'get'}));\n    }\n\n    /**\n     * Run a post request\n     * @param config\n     * @returns {Promise<Object>}\n     */\n    post(config = {}){\n        return this.run(Object.assign(config, {method: 'post'}));\n    }\n\n    /**\n     * Run a put request\n     * @param config\n     * @returns {Promise<Object>}\n     */\n    put(config = {}){\n        return this.run(Object.assign(config, {method: 'put'}));\n    }\n\n    /**\n     * Run a delete request\n     * @param config\n     * @returns {Promise<Object>}\n     */\n    delete(config = {}){\n        return this.run(Object.assign(config, {method: 'delete'}));\n    }\n\n    /**\n     * Runs a new http request\n     * @param config\n     * @returns {Promise<object>}\n     */\n    run(config){\n        return new Promise((resolve, reject) => {\n            axios.request({\n                method: config.method,\n                url: this._url,\n                data: config.data ? config.data : {},\n                headers: config.headers ? config.headers: {}\n            }).then(data => {\n                resolve(data);\n            }).catch(e => {\n                reject(e);\n            })\n        });\n    }\n}\n\nmodule.exports = HttpLink;\n",
@@ -2028,7 +2115,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 116,
+    "__docId__": 120,
     "kind": "class",
     "name": "HttpLink",
     "memberof": "app/links/synchronouslinks/HttpLink.js",
@@ -2047,7 +2134,7 @@
     ]
   },
   {
-    "__docId__": 117,
+    "__docId__": 121,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "app/links/synchronouslinks/HttpLink.js~HttpLink",
@@ -2072,7 +2159,7 @@
     ]
   },
   {
-    "__docId__": 118,
+    "__docId__": 122,
     "kind": "method",
     "name": "get",
     "memberof": "app/links/synchronouslinks/HttpLink.js~HttpLink",
@@ -2113,7 +2200,7 @@
     }
   },
   {
-    "__docId__": 119,
+    "__docId__": 123,
     "kind": "method",
     "name": "post",
     "memberof": "app/links/synchronouslinks/HttpLink.js~HttpLink",
@@ -2154,7 +2241,7 @@
     }
   },
   {
-    "__docId__": 120,
+    "__docId__": 124,
     "kind": "method",
     "name": "put",
     "memberof": "app/links/synchronouslinks/HttpLink.js~HttpLink",
@@ -2195,7 +2282,7 @@
     }
   },
   {
-    "__docId__": 121,
+    "__docId__": 125,
     "kind": "method",
     "name": "delete",
     "memberof": "app/links/synchronouslinks/HttpLink.js~HttpLink",
@@ -2236,7 +2323,7 @@
     }
   },
   {
-    "__docId__": 122,
+    "__docId__": 126,
     "kind": "method",
     "name": "run",
     "memberof": "app/links/synchronouslinks/HttpLink.js~HttpLink",
@@ -2275,7 +2362,7 @@
     }
   },
   {
-    "__docId__": 123,
+    "__docId__": 127,
     "kind": "file",
     "name": "app/links/synchronouslinks/SynchronousLink.js",
     "content": "// @flow\n/**\n * Class representing a network link that has request/response structure\n * Author: Jun Zheng\n * License: MIT\n */\n\nimport Link from \"../Link\";\n\nexport default class SynchronousLink extends Link {\n\n    type: string = \"sync\";\n\n    constructor(url: string) {\n        super(url);\n    }\n}\n",
@@ -2286,7 +2373,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 124,
+    "__docId__": 128,
     "kind": "class",
     "name": "SynchronousLink",
     "memberof": "app/links/synchronouslinks/SynchronousLink.js",
@@ -2305,7 +2392,7 @@
     ]
   },
   {
-    "__docId__": 125,
+    "__docId__": 129,
     "kind": "member",
     "name": "type",
     "memberof": "app/links/synchronouslinks/SynchronousLink.js~SynchronousLink",
@@ -2324,7 +2411,7 @@
     }
   },
   {
-    "__docId__": 126,
+    "__docId__": 130,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "app/links/synchronouslinks/SynchronousLink.js~SynchronousLink",
@@ -2349,227 +2436,8 @@
     ]
   },
   {
-    "__docId__": 127,
-    "kind": "file",
-    "name": "app/routes/Graph.js",
-    "content": "// @flow\n\nimport GraphController from '../controllers/GraphController';\n\nconst graphController = new GraphController();\n\nexport const Graph = {\n    query: graphController.query\n};\n",
-    "static": true,
-    "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/app/routes/Graph.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 128,
-    "kind": "variable",
-    "name": "graphController",
-    "memberof": "app/routes/Graph.js",
-    "static": true,
-    "longname": "app/routes/Graph.js~graphController",
-    "access": "public",
-    "export": false,
-    "importPath": "@hackthevalley/sdk/app/routes/Graph.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "type": {
-      "types": [
-        "app/controllers/GraphController.js~GraphController"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 129,
-    "kind": "variable",
-    "name": "Graph",
-    "memberof": "app/routes/Graph.js",
-    "static": true,
-    "longname": "app/routes/Graph.js~Graph",
-    "access": "public",
-    "export": true,
-    "importPath": "@hackthevalley/sdk/app/routes/Graph.js",
-    "importStyle": "{Graph}",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"query\": *}"
-      ]
-    }
-  },
-  {
-    "__docId__": 130,
-    "kind": "file",
-    "name": "app/routes/Hacker.js",
-    "content": "//@flow\n\nimport HackerController from \"../controllers/HackerController\";\n\nconst hackerController = new HackerController();\n\nexport const Hacker = {\n    create: hackerController.create,\n    update: hackerController.update,\n    createToken: hackerController.createToken,\n    sendPasswordResetEmail: hackerController.sendPasswordResetEmail,\n    resetPassword: hackerController.resetPassword\n};\n",
-    "static": true,
-    "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/app/routes/Hacker.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 131,
-    "kind": "variable",
-    "name": "hackerController",
-    "memberof": "app/routes/Hacker.js",
-    "static": true,
-    "longname": "app/routes/Hacker.js~hackerController",
-    "access": "public",
-    "export": false,
-    "importPath": "@hackthevalley/sdk/app/routes/Hacker.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "type": {
-      "types": [
-        "app/controllers/HackerController.js~HackerController"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 132,
-    "kind": "variable",
-    "name": "Hacker",
-    "memberof": "app/routes/Hacker.js",
-    "static": true,
-    "longname": "app/routes/Hacker.js~Hacker",
-    "access": "public",
-    "export": true,
-    "importPath": "@hackthevalley/sdk/app/routes/Hacker.js",
-    "importStyle": "{Hacker}",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"create\": *, \"update\": *, \"createToken\": *, \"sendPasswordResetEmail\": *, \"resetPassword\": *}"
-      ]
-    }
-  },
-  {
-    "__docId__": 133,
-    "kind": "file",
-    "name": "app/routes/HackerApplication.js",
-    "content": "// @flow\n\nimport HackerApplicationController from \"../controllers/HackerApplicationController\";\n\nconst hackerApplicationController = new HackerApplicationController();\n\nexport const HackerApplication = {\n    create: hackerApplicationController.create,\n    updateQuestion: hackerApplicationController.updateQuestion,\n    submit: hackerApplicationController.submit\n};\n",
-    "static": true,
-    "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/app/routes/HackerApplication.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 134,
-    "kind": "variable",
-    "name": "hackerApplicationController",
-    "memberof": "app/routes/HackerApplication.js",
-    "static": true,
-    "longname": "app/routes/HackerApplication.js~hackerApplicationController",
-    "access": "public",
-    "export": false,
-    "importPath": "@hackthevalley/sdk/app/routes/HackerApplication.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "type": {
-      "types": [
-        "app/controllers/HackerApplicationController.js~HackerApplicationController"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 135,
-    "kind": "variable",
-    "name": "HackerApplication",
-    "memberof": "app/routes/HackerApplication.js",
-    "static": true,
-    "longname": "app/routes/HackerApplication.js~HackerApplication",
-    "access": "public",
-    "export": true,
-    "importPath": "@hackthevalley/sdk/app/routes/HackerApplication.js",
-    "importStyle": "{HackerApplication}",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"create\": *, \"updateQuestion\": *, \"submit\": *}"
-      ]
-    }
-  },
-  {
-    "__docId__": 136,
-    "kind": "file",
-    "name": "app/routes/User.js",
-    "content": "// @flow\n\nimport UserController from \"../controllers/UserController\";\n\nconst userController = new UserController();\n\nexport const User = {\n    createToken: userController.createToken\n};\n",
-    "static": true,
-    "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/app/routes/User.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 137,
-    "kind": "variable",
-    "name": "userController",
-    "memberof": "app/routes/User.js",
-    "static": true,
-    "longname": "app/routes/User.js~userController",
-    "access": "public",
-    "export": false,
-    "importPath": "@hackthevalley/sdk/app/routes/User.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "type": {
-      "types": [
-        "app/controllers/UserController.js~UserController"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 138,
-    "kind": "variable",
-    "name": "User",
-    "memberof": "app/routes/User.js",
-    "static": true,
-    "longname": "app/routes/User.js~User",
-    "access": "public",
-    "export": true,
-    "importPath": "@hackthevalley/sdk/app/routes/User.js",
-    "importStyle": "{User}",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"createToken\": *}"
-      ]
-    }
-  },
-  {
-    "__docId__": 139,
-    "kind": "file",
-    "name": "app/routes/index.js",
-    "content": "export * from './Graph'\nexport * from './Hacker'\nexport * from './HackerApplication'\nexport * from './User'",
-    "static": true,
-    "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/app/routes/index.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
     "kind": "index",
-    "content": "# Hack the Valley JavaScript SDK\n\nInterested in building with Hack the Valley API? Download our JS SDK to get started!\n\n```bash\n$ npm install @hackthevalley/sdk --save\n```\n\nOnce you have installed the SDK, import it by simply typing:\n\n```js\nimport htv from 'htv-sdk';\n```\n\n## Contributing\n\nFeel free to contribute to this repository, there isn't really any style guidelines, once you read through the codebase everything should be very self-explanatory.\n\nNote that we use Flow to do static type checking, you can manually run `npm test` to check types. There is also a pre-commit hook where we automatically checks the typing for you.",
+    "content": "# Hack the Valley JavaScript SDK\n\nInterested in building with Hack the Valley API? Download our JS SDK to get started!\n\n```bash\n$ npm install @hackthevalley/sdk --save\n```\n\nOnce you have installed the SDK, import it by simply typing:\n\n```js\nimport htv from 'htv-sdk';\n```\n\nYou can find the API reference here: https://hackthevalley.github.io/js_sdk/.\n\n## Contributing\n\nFeel free to contribute to this repository, there isn't really any style guidelines, once you read through the codebase everything should be very self-explanatory.\n\nNote that we use Flow to do static type checking, you can manually run `npm test` to check types. There is also a pre-commit hook where we automatically checks the typing for you.\n\n## Deployment\n\nTo deploy a new version of the documentation, run\n\n```\n$ npm run deploy-doc\n```\n\nTo deploy a new version to NPM, run\n\n```\n$ npm run deploy:(patch|minor|major)\n```",
     "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/README.md",
     "name": "./README.md",
     "static": true,
@@ -2577,7 +2445,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"@hackthevalley/sdk\",\n  \"version\": \"1.1.11\",\n  \"description\": \"Hack the Valley JavaScript SDK\",\n  \"main\": \"lib/index.js\",\n  \"scripts\": {\n    \"test\": \"flow\",\n    \"build\": \"babel . -d lib --ignore node_modules\",\n    \"deploy-docs\": \"./scripts/deploy-docs.sh\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"npm run build && npm test\",\n      \"pre-push\": \"npm run build && npm test\"\n    }\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/hackthevalley/hack_the_valley_js_sdk.git\"\n  },\n  \"author\": \"Jun Zheng\",\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/hackthevalley/hack_the_valley_js_sdk/issues\"\n  },\n  \"homepage\": \"https://github.com/hackthevalley/hack_the_valley_js_sdk#readme\",\n  \"devDependencies\": {\n    \"@babel/cli\": \"7.2.3\",\n    \"@babel/core\": \"7.2.2\",\n    \"@babel/plugin-proposal-class-properties\": \"7.2.3\",\n    \"@babel/polyfill\": \"^7.2.5\",\n    \"@babel/preset-env\": \"7.2.3\",\n    \"@babel/preset-flow\": \"7.0.0\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-flow-type-plugin\": \"^1.1.0\",\n    \"esdoc-node\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"flow-bin\": \"^0.90.0\",\n    \"flow-typed\": \"^2.5.1\",\n    \"husky\": \"^1.3.1\"\n  },\n  \"dependencies\": {\n    \"axios\": \"0.18.0\",\n    \"graphql-request\": \"^1.8.2\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"@hackthevalley/sdk\",\n  \"version\": \"1.3.0\",\n  \"description\": \"Hack the Valley JavaScript SDK\",\n  \"main\": \"lib/index.js\",\n  \"scripts\": {\n    \"test\": \"flow\",\n    \"flow\": \"flow\",\n    \"esdoc\": \"esdoc\",\n    \"build\": \"babel . -d lib --ignore node_modules\",\n    \"deploy-docs\": \"./scripts/deploy-docs.sh\",\n    \"deploy:patch\": \"npm run build && npm version patch && npm publish && git push\",\n    \"deploy:minor\": \"npm run build && npm version minor && npm publish && git push\",\n    \"deploy:major\": \"npm run build && npm version major && npm publish && git push\",\n    \"deploy\": \"npm run deploy:patch\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"npm run build && npm test\",\n      \"pre-push\": \"npm run build && npm test\"\n    }\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/hackthevalley/hack_the_valley_js_sdk.git\"\n  },\n  \"author\": \"Jun Zheng\",\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/hackthevalley/hack_the_valley_js_sdk/issues\"\n  },\n  \"homepage\": \"https://github.com/hackthevalley/hack_the_valley_js_sdk#readme\",\n  \"devDependencies\": {\n    \"@babel/cli\": \"7.2.3\",\n    \"@babel/core\": \"7.2.2\",\n    \"@babel/plugin-proposal-class-properties\": \"7.2.3\",\n    \"@babel/preset-env\": \"7.2.3\",\n    \"@babel/preset-flow\": \"7.0.0\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-flow-type-plugin\": \"^1.1.0\",\n    \"esdoc-node\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"flow-bin\": \"^0.90.0\",\n    \"flow-typed\": \"^2.5.1\",\n    \"husky\": \"^1.3.1\"\n  },\n  \"dependencies\": {\n    \"@babel/polyfill\": \"7.2.5\",\n    \"axios\": \"0.18.0\",\n    \"graphql-request\": \"^1.8.2\"\n  }\n}\n",
     "longname": "/Users/junzheng/Repositories/HackTheValley/hack_the_valley_js_sdk/package.json",
     "name": "package.json",
     "static": true,

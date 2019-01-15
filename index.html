@@ -32,7 +32,8 @@
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#adaptors">adaptors</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/adaptors/Adaptor.js~Adaptor.html">Adaptor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/adaptors/HackTheValleyGraphQLAdaptor.js~HackTheValleyGraphQLAdaptor.html">HackTheValleyGraphQLAdaptor</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#controllers">controllers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/GraphController.js~GraphController.html">GraphController</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#controllers">controllers</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/FileController.js~FileController.html">FileController</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/GraphController.js~GraphController.html">GraphController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/HackerApplicationController.js~HackerApplicationController.html">HackerApplicationController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/HackerController.js~HackerController.html">HackerController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controllers/UserController.js~UserController.html">UserController</a></span></span></li>
@@ -40,10 +41,6 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#links-synchronouslinks">links/synchronouslinks</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/links/synchronouslinks/GraphQLLink.js~GraphQLLink.html">GraphQLLink</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/links/synchronouslinks/HttpLink.js~HttpLink.html">HttpLink</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/links/synchronouslinks/SynchronousLink.js~SynchronousLink.html">SynchronousLink</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes">routes</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Graph">Graph</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Hacker">Hacker</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-HackerApplication">HackerApplication</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-User">User</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -54,9 +51,14 @@
 <p>Once you have installed the SDK, import it by simply typing:</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">import htv from &apos;htv-sdk&apos;;</code>
 </code></pre>
+<p>You can find the API reference here: <a href="https://hackthevalley.github.io/js_sdk/">https://hackthevalley.github.io/js_sdk/</a>.</p>
 <h2 id="contributing">Contributing</h2><p>Feel free to contribute to this repository, there isn&apos;t really any style guidelines, once you read through the codebase everything should be very self-explanatory.</p>
 <p>Note that we use Flow to do static type checking, you can manually run <code>npm test</code> to check types. There is also a pre-commit hook where we automatically checks the typing for you.</p>
-</div>
+<h2 id="deployment">Deployment</h2><p>To deploy a new version of the documentation, run</p>
+<pre><code><code class="source-code prettyprint">$ npm run deploy-doc</code>
+</code></pre><p>To deploy a new version to NPM, run</p>
+<pre><code><code class="source-code prettyprint">$ npm run deploy:(patch|minor|major)</code>
+</code></pre></div>
 </div>
 
 <footer class="footer">

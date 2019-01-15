@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">app/links/synchronouslinks/GraphQLLink.js | HTV JS SDK</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">FileController | HTV JS SDK</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -45,55 +45,168 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">app/links/synchronouslinks/GraphQLLink.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
-import SynchronousLink from &quot;./SynchronousLink&quot;;
-import {GraphQLClient} from &quot;graphql-request&quot;;
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import FileController from &apos;<span><a href="file/app/controllers/FileController.js.html#lineNumber2">@hackthevalley/sdk/app/controllers/FileController.js</a></span>&apos;</code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/app/controllers/FileController.js.html#lineNumber2">source</a></span></span>
+</div>
 
-export type GraphQLLinkConfiguration = {
-    headers: any
-};
+<div class="self-detail detail">
+  <h1 data-ice="name">FileController</h1>
 
-export type GraphQLLinkRunConfiguration = {
-    query: string,
-    variables: any
-};
+  
 
-export default class GraphQLLink extends SynchronousLink {
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-    client: GraphQLClient;
+  
+  
+  
+  
 
-    /**
-     * Construct a new GraphQLLink.
-     */
-    constructor(url: string, config: GraphQLLinkConfiguration = {}) {
-        super(url);
-        this.client = new GraphQLClient(url, {headers: config.headers || {}});
-    }
+  
 
-    /**
-     * Alias for run.
-     */
-    async query(config: GraphQLLinkRunConfiguration) {
-        return this.run(config);
-    }
+  
 
-    /**
-     * Alias for run.
-     */
-    async mutate(config: GraphQLLinkRunConfiguration): any {
-        return this.run(config);
-    }
+  
 
-    /**
-     * Run a new apollo request
-     */
-    async run(config: GraphQLLinkRunConfiguration): any {
-        return await this.client.request(config.query, config.variables || {});
-    }
-}
-</code></pre>
+  
+</div>
 
+
+
+
+
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/app/controllers/FileController.js~FileController.html#instance-method-getBase64FromFile">getBase64FromFile</a></span></span><span class="code" data-ice="signature">(file: <span><a href="class/app/App.js~App.html#instance-member-File">File</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span>&lt;<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Takes in a File object from browser, convert it to base64.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-getBase64FromFile">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">getBase64FromFile</span><span class="code" data-ice="signature">(file: <span><a href="class/app/App.js~App.html#instance-member-File">File</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span>&lt;<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>&gt;</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/controllers/FileController.js.html#lineNumber7">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Takes in a File object from browser, convert it to base64.
+This function only works if you are running this in a browser.  </p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">file</td>
+      <td data-ice="type" class="code"><span><a href="class/app/App.js~App.html#instance-member-File">File</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span>&lt;<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>&gt;</td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">
