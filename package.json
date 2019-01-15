@@ -9,9 +9,9 @@
     "esdoc": "esdoc",
     "build": "babel . -d lib --ignore node_modules",
     "deploy-docs": "./scripts/deploy-docs.sh",
-    "deploy:patch": "npm run build && npm version patch && npm publish && git push",
-    "deploy:minor": "npm run build && npm version minor && npm publish && git push",
-    "deploy:major": "npm run build && npm version major && npm publish && git push",
+    "deploy:patch": "npm run build && npm version patch && npm publish && git push && npm run deploy-docs",
+    "deploy:minor": "npm run build && npm version minor && npm publish && git push && npm run deploy-docs",
+    "deploy:major": "npm run build && npm version major && npm publish && git push && npm run deploy-docs",
     "deploy": "npm run deploy:patch"
   },
   "husky": {
