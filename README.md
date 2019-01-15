@@ -9,7 +9,7 @@ $ npm install @hackthevalley/sdk --save
 Once you have installed the SDK, import it by simply typing:
 
 ```js
-import htv from 'htv-sdk';
+import htv from '@hackthevalley/sdk';
 ```
 
 You can find the API reference here: https://hackthevalley.github.io/js_sdk/.
