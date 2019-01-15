@@ -9,7 +9,7 @@ export default class HackerController {
     async create(emailAddress: string, password: string): Promise<string> {
         return await (App.getInstance().getAdaptor().mutate(`
             mutation ($emailAddress: String!, $password: String!) {
-                createHacker(email_address: $email_address, password: $password) {
+                createHacker(email_address: $emailAddress, password: $password) {
                     _id
                 }
             }
