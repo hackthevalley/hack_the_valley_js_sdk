@@ -522,6 +522,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "app/controllers/filecontroller.js~filecontroller#getfiletypefrombase64",
+    "class/app/controllers/FileController.js~FileController.html#instance-method-getFileTypeFromBase64",
+    "app/controllers/FileController.js~FileController#getFileTypeFromBase64",
+    "method"
+  ],
+  [
     "app/controllers/graphcontroller.js",
     "file/app/controllers/GraphController.js.html",
     "app/controllers/GraphController.js",

@@ -60,6 +60,14 @@ export default class FileController {
             reader.onerror = e =&gt; reject(e);
         })
     }
+
+    /**
+     * Get file type from a base64 string converted by getBase64FromFile.
+     * Must start with data:???/???;
+     */
+    getFileTypeFromBase64(base64: string): string {
+        return base64.split(&quot;;&quot;)[0].split(&quot;:&quot;)[1].split(&quot;/&quot;)[1];
+    }
 }
 </code></pre>
 
