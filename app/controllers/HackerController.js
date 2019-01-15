@@ -7,7 +7,7 @@ export default class HackerController {
      * Create a new hacker, return hacker ID if successful.
      */
     async create(emailAddress: string, password: string): Promise<string> {
-        return await (App.getInstance().getAdaptor().mutate(`
+        return (await App.getInstance().getAdaptor().mutate(`
             mutation ($emailAddress: String!, $password: String!) {
                 createHacker(email_address: $emailAddress, password: $password) {
                     _id
