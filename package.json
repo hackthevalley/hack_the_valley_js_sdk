@@ -5,6 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "flow",
+    "flow": "flow",
+    "esdoc": "esdoc",
     "build": "babel . -d lib --ignore node_modules",
     "deploy-docs": "./scripts/deploy-docs.sh",
     "deploy:patch": "npm run build && npm version patch && npm publish && git push",

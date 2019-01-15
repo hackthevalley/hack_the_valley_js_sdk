@@ -1,10 +1,4 @@
 // @flow
-/**
- * Controller for the graph, used to query stuff :)
- * Author: Jun Zheng
- * License: MIT
- */
-
 import App from "../App";
 
 export default class GraphController {

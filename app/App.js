@@ -1,8 +1,12 @@
 // @flow
-import {Graph, Hacker, HackerApplication, User} from "./routes";
-import {CONFIG}                                 from "../config";
-import type {Configuration}                     from "../config";
-import HackTheValleyGraphQLAdaptor              from "./adaptors/HackTheValleyGraphQLAdaptor";
+import {CONFIG}                    from "../config";
+import type {Configuration}        from "../config";
+import HackTheValleyGraphQLAdaptor from "./adaptors/HackTheValleyGraphQLAdaptor";
+import FileController              from "./controllers/FileController";
+import GraphController             from "./controllers/GraphController";
+import HackerController            from "./controllers/HackerController";
+import HackerApplicationController from "./controllers/HackerApplicationController";
+import UserController              from "./controllers/UserController";
 
 let instance = null;
 
@@ -11,10 +15,11 @@ let instance = null;
  */
 export default class App {
 
-    Graph             = Graph;
-    Hacker            = Hacker;
-    HackerApplication = HackerApplication;
-    User              = User;
+    Graph: GraphController                         = new GraphController();
+    Hacker: HackerController                       = new HackerController();
+    HackerApplication: HackerApplicationController = new HackerApplicationController();
+    User: UserController                           = new UserController();
+    File: FileController                           = new FileController();
 
     token: string;
     adaptor: HackTheValleyGraphQLAdaptor;
